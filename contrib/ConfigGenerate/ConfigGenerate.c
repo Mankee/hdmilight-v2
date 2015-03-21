@@ -51,8 +51,8 @@
 
 // LEDS_X * 2 + LEDS_Y * 2  must be <= 512, if it's not, then your configuration will span more than 1 output, and this
 // tool is not for you
-#define LEDS_X	73	// Number of X leds (number of LEDs in each of the Top and Bottom Rows), must be integer
-#define LEDS_Y	41	// Number of Y leds (number of LEDs in each of the Left and Right Columns, must be integer
+#define LEDS_X	16	// Number of X leds (number of LEDs in each of the Top and Bottom Rows), must be integer
+#define LEDS_Y	9	// Number of Y leds (number of LEDs in each of the Left and Right Columns, must be integer
 
 // Fine tuning the bounds of the screen
 // The screen is divided into a grid of cells of VIDEO_SCALING x VIDEO_SCALING in pixels by the FPGA
@@ -83,10 +83,10 @@
 //	CELLGRID_BOUNDS_START_Y_OFFSET 	1
 //	CELLGRID_BOUNDS_END_Y_OFFSET	0
 //
-#define CELLGRID_BOUNDS_START_X_OFFSET 	0	// Adjustment to the first cell we want to use for the LEDS, must be >=0, typically <=2 and integer
-#define CELLGRID_BOUNDS_END_X_OFFSET	0	// Adjustment to the last cell we want to use for the LEDS, typically -2 to +2 and integer
-#define CELLGRID_BOUNDS_START_Y_OFFSET 	0	// Adjustment to the first cell we want to use for the LEDS, must be >=0, typically <=2 and integer
-#define CELLGRID_BOUNDS_END_Y_OFFSET	0	// Adjustment to the last cell we want to use for the LEDS, typically -2 to +2 and integer
+#define CELLGRID_BOUNDS_START_X_OFFSET 	1	// Adjustment to the first cell we want to use for the LEDS, must be >=0, typically <=2 and integer
+#define CELLGRID_BOUNDS_END_X_OFFSET	-1	// Adjustment to the last cell we want to use for the LEDS, typically -2 to +2 and integer
+#define CELLGRID_BOUNDS_START_Y_OFFSET 	1	// Adjustment to the first cell we want to use for the LEDS, must be >=0, typically <=2 and integer
+#define CELLGRID_BOUNDS_END_Y_OFFSET	-1	// Adjustment to the last cell we want to use for the LEDS, typically -2 to +2 and integer
 
 // The cell grid is further divided into areas which surround the outside the screen
 // The following are in units of cells and are integers.  The minimum size is 1 cell.
@@ -108,8 +108,8 @@
 // The number of areas must be <= 255, therefore:
 //	 ( ((ceilf(PIXELS_WIDTH / VIDEO_SCALING) / AREA_WIDTH) * 2 + 
 //	   ((ceilf(PIXELS_HEIGHT / VIDEO_SCALING) / AREA_WIDTH) * 2 ) must be less than 255
-#define AREA_WIDTH 1	// >=1 and integer:  Typically 1 or 2 (if you have fewer LEDs per strip)
-#define AREA_DEPTH 8	// >=1 and integer:  Start at 8, and reduce after you've tuned CELLGRID_BOUNDS
+#define AREA_WIDTH 2	// >=1 and integer:  Typically 1 or 2 (if you have fewer LEDs per strip)
+#define AREA_DEPTH 2	// >=1 and integer:  Start at 8, and reduce after you've tuned CELLGRID_BOUNDS
 
 // Defining the letter box ratio avoids having to change the CELLGRID_BOUNDS and LEDS_BOUNDS
 // for different Letterbox formats at the same resolution.
